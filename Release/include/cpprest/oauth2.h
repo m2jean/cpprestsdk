@@ -202,14 +202,12 @@ class oauth2_config
 {
 public:
     oauth2_config(utility::string_t client_key,
-                  utility::string_t client_secret,
                   utility::string_t auth_endpoint,
                   utility::string_t token_endpoint,
                   utility::string_t redirect_uri,
                   utility::string_t scope = utility::string_t(),
                   utility::string_t user_agent = utility::string_t())
         : m_client_key(std::move(client_key))
-        , m_client_secret(std::move(client_secret))
         , m_auth_endpoint(std::move(auth_endpoint))
         , m_token_endpoint(std::move(token_endpoint))
         , m_redirect_uri(std::move(redirect_uri))

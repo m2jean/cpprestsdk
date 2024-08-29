@@ -130,7 +130,9 @@ pplx::task<void> oauth2_config::_request_token(uri_builder& request_body_ub)
     {
         // Add credentials to query as-is.
         request_body_ub.append_query(oauth2_strings::client_id, uri::encode_data_string(client_key()), false);
-        request_body_ub.append_query(oauth2_strings::client_secret, uri::encode_data_string(client_secret()), false);
+        if (!client_secret().empty())
+            request_body_ub.append_query(
+                oauth2_strings::client_secret, uri::encode_data_string(client_secret()), false);
     }
     request.set_body(request_body_ub.query(), mime_types::application_x_www_form_urlencoded);
 
